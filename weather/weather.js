@@ -20,6 +20,10 @@ var getWeather = (latitude, longitude, callback) =>
         {
             callback("Unable to fetch weather");
         }
+        else if(response.statusCode === 401)
+        {
+            callback('Unauthorized access. Check your API Key');
+        }
         else if(response.statusCode === 200)
         {
             callback(null, 

@@ -35,16 +35,13 @@ geocode.geocodeAddress(argv.address, (error, results) =>
         {
             if(error)
             {
-                console.log(err);
+                console.log(error);
             }
             else
             {
                 console.log(JSON.stringify(weatherResults, undefined, 2));
-                //console.log(`It's currently ${weatherResults.temperature}`);
-                //console.log(`It feels like ${weatherResults.apparentTemperature}`)
             }
         });
-        //console.log(JSON.stringify(results, undefined, 2));
     }
 });
 
