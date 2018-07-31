@@ -22,7 +22,14 @@ var getWeather = (latitude, longitude, callback) =>
         }
         else if(response.statusCode === 200)
         {
-            callback(null, body.currently.temperature);
+            callback(null, 
+            {
+                temperature         : body.currently.temperature,
+                apparentTemperature : body.currently.apparentTemperature,
+                humidity            : body.currently.humidity,
+                pressure            : body.currently.pressure,
+                windSpeed           : body.currently.windSpeed
+            });
         }
     });
 }

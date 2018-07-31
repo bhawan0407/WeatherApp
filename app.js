@@ -26,10 +26,12 @@ geocode.geocodeAddress(argv.address, (error, results) =>
     }
     else
     {
+        console.log(results.address);
+ 
         var latitude  = results.latitude;
         var longitude = results.longitude;
         
-        weather.getWeather(latitude, longitude, (err, res) => 
+        weather.getWeather(latitude, longitude, (error, weatherResults) => 
         {
             if(error)
             {
@@ -37,7 +39,9 @@ geocode.geocodeAddress(argv.address, (error, results) =>
             }
             else
             {
-                console.log(res);
+                console.log(JSON.stringify(weatherResults, undefined, 2));
+                //console.log(`It's currently ${weatherResults.temperature}`);
+                //console.log(`It feels like ${weatherResults.apparentTemperature}`)
             }
         });
         //console.log(JSON.stringify(results, undefined, 2));
